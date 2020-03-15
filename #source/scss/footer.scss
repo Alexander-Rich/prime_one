@@ -1,0 +1,34 @@
+
+//====================================================================================================
+.footer {
+}
+
+.footer-body {
+	@include flexbox();
+	justify-content: space-between;
+	align-items: center;
+	margin: 39px 0px 27px 0px;
+	@media (max-width:$md2+px){
+		margin: 15px 0px 15px 0px;
+	}
+	&__author {
+
+		color: #4d4d4d;
+		font-size: 15px;
+		@media (max-width:$md4+px){font-size: 14px;}
+		span {text-decoration: underline;}
+	}
+	&__logo {
+
+		margin: 0px 0px 0px 0px;
+		@media (max-width:$md2+px){
+			img{
+				max-width: 120px;
+			}
+		}
+		@media (max-width:$md4+px){display: none;}
+	}
+}
+
+//====================================================================================================
+

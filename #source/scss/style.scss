@@ -1,0 +1,440 @@
+//<МИКСИНЫ>===============================================================================================
+@mixin anim($time,$delay){-webkit-transition: all $time ease $delay;-moz-transition: all $time ease $delay;-ms-transition: all $time ease $delay;-o-transition: all $time ease $delay;transition: all $time ease $delay;}
+@mixin anim_cubic($time, $delay) {-webkit-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-moz-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-ms-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-o-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;}
+@mixin rotate($deg){-moz-transform: rotate($deg);-ms-transform: rotate($deg);-webkit-transform: rotate($deg);-o-transform: rotate($deg);transform: rotate($deg);}
+@mixin scale($num){-moz-transform: scale($num);-ms-transform: scale($num);-webkit-transform: scale($num);-o-transform: scale($num);transform: scale($num);}
+@mixin skew($num){-webkit-transform: skewX($num);-moz-transform: skewX($num);-ms-transform: skewX($num);-o-transform: skewX($num);transform: skewX($num);}
+@mixin cnt($h){display: flex;flex-direction: column;height: $h;text-align: center;align-items: stretch;justify-content: center;}
+@mixin tr($x,$y,$z){transform: translate3d($x, $y, $z);};
+@mixin flexbox() {display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;font-size:0;}
+@mixin flexorder($val){-webkit-box-ordinal-group: $val;-moz-box-ordinal-group: $val;-ms-flex-order: $val;-webkit-order: $val;order: $val;}
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+  @import url(http://allfont.ru/allfont.css?fonts=bebas);
+//<Подключаем шрифты>=======================================================================================
+@font-face {
+	font-family: 'akzidenzgroteskbq-bdcnd';
+	src: url('../fonts/AkzidenzGroteskBQCondensedBold.eot');
+	src: local('☺'), url('../fonts/AkzidenzGroteskBQCondensedBold.woff') format('woff'), url('../fonts/AkzidenzGroteskBQCondensedBold.ttf') format('truetype'), url('../fonts/AkzidenzGroteskBQCondensedBold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+//</Подключаем шрифты>=======================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily:"PT Sans";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>==============================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth:320px;
+$mw:880;
+$md1:$mw+12;
+$md2:992.98;
+$md3:767.98;
+$md4:479.98;
+//</ПЕРЕМЕННЫЕ>==============================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+*{padding: 0px;margin: 0px;border: 0px;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+aside,nav,footer,header,section{display: block;}
+html,body{height: 100%;margin: 0;padding: 0;min-width: $minwidth;position: relative;width: 100%;color: #000;}
+body{font-size: 100%;line-height: 1;font-size: 14px;font-family: $fontfamily;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
+	&.lock{overflow: hidden;
+		@media (max-width:$md3+px){
+			width: 100%;
+			position: fixed;
+			overflow: hidden;
+		}
+	}
+}
+input,button,textarea{font-family: $fontfamily;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper{width: 100%;min-height: 100%;overflow: hidden;
+	&.loaded{}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+.block-private {
+	@include flexbox();
+	padding: 0px 0px 75px 0px;
+	@media (max-width:$md3+px){
+		display: block;
+	}
+	@media (max-width:$md4+px){padding: 0px 0px 20px 0px;}
+	&__image {
+		flex: 0 0 50%;	
+		@media (max-width:$md3+px){
+			height: 20px;
+			border: 2px solid #000;
+		}
+	}
+	&__content {
+		flex: 0 0 50%;
+		background-color: #000;
+		padding: 82px 0px 0px 62px;
+		@media (max-width:$md2+px){
+			padding: 40px 0px 0px 30px;
+		}
+	}
+	&__title {
+
+		color: #ffffff;
+		font-family: "akzidenzgroteskbq-bdcnd";
+		font-size: 50px;
+		line-height: 50px;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		padding: 0px 0px 37px 0px;
+		@media (max-width:$md2+px){padding: 0px 0px 20px 0px;}
+		max-width: 200px;
+
+
+	}
+	&__subtitle {
+
+		color: #ffffff;
+		font-family: "PT Sans";
+		font-size: 15px;
+		line-height: 25px;
+		padding: 0px 0px 55px 0px;
+		@media (max-width:$md2+px){padding: 0px 0px 30px 0px;}
+		max-width: 305px;
+	
+	}
+	&__btns {
+		@include flexbox();
+		align-items: center;
+		padding: 0px 0px 75px 0px;
+		@media (max-width:$md2+px){padding: 0px 0px 40px 0px;}
+	}
+	&__btn {}
+}
+.btn {
+	&_w {
+		display: inline-block;
+		background-color: #fff;
+		padding: 18px 34px;
+		color: #000;
+		font-family: 'Bebas';
+		font-size: 15px;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		@media (max-width:$md3+px){padding: 10px 20px;}
+		&:hover{
+			position: relative;
+			top: 2px;
+			transition: background-color 0.5s ease 0s, color 0.5s ease 0s, text-shadow 0.5s ease 0.3s;
+			background-color: #000;
+			color: #fff;
+			text-shadow: 0 0 10px #fff;
+
+		}
+	}
+}
+.btn2 {
+	&_w {
+		padding: 0px 14px;
+		color: #fffffe;
+		font-family: 'Bebas';
+		font-size: 15px;
+		text-decoration: underline;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+	
+	}
+}
+
+.block-catering {
+	@include flexbox();
+	height: 100%;
+	margin: 0px 0px 50px 0px;
+	@media (max-width:$md2+px){margin: 0px 0px 25px 0px;}
+	@media (max-width:$md3+px){flex-wrap: wrap;}
+	@media (max-width:$md4+px){margin: 0px 0px 10px 0px;}
+
+	&__content {
+		@include flexbox();
+		flex-direction: column;
+		flex: 0 0 25%;
+		@media (max-width:$md3+px){flex: 0 0 50%;}
+		@media (max-width:$md4+px){flex: 0 0 100%;}
+	}
+	&__image {
+		display: block;
+		padding: 0px 0px 100% 0px;
+		margin: 0px 0px 25px 0px;
+	}
+	&__title {
+		color: #000000;
+		font-family: "akzidenzgroteskbq-bdcnd";
+		font-size: 25px;
+		text-transform: uppercase;
+		letter-spacing: 2.5px;
+		padding: 0px 30px 36px 5px;
+		@media (max-width:$md3+px){font-size: 18px;}
+	}
+	&__subtitle {
+		flex: 1 1 auto;
+		color: #000000;
+		font-family: "PT Sans";
+		font-size: 15px;
+		line-height: 25px;
+		padding: 0px 0px 32px 0px;
+		@media (max-width:$md2+px){
+			text-align: justify;
+			padding: 0px 15px 32px 0px;
+		}
+	}
+}
+
+.block-why {
+	@include flexbox();
+
+	&__title {
+		flex: 0 0 50%; 
+		text-align: right;
+		background-color: #000;
+		color: #ffffff;
+		font-family: "akzidenzgroteskbq-bdcnd";
+		font-size: 50px;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		padding: 57px 61px 56px 0px;
+		@media (max-width:$md2+px){
+			padding: 30px 30px 30px 0px;
+			font-size: 36px;
+		}
+		@media (max-width:$md3+px){
+			font-size: 24px;
+			padding: 20px 20px 20px 20px;
+		}
+		@media (max-width:$md4+px){
+			flex: 0 0 100%;
+			text-align-last: left;
+		}
+	}
+	&__image {
+		flex: 0 0 50%; 
+	}
+}
+
+.block-items {
+	background-color: #ebebeb;
+	padding: 50px 0px;
+	@media (max-width:$md2+px){
+			padding: 30px 0px;
+		}
+	&__row {
+		@include flexbox();
+		flex-wrap: wrap;
+
+	}
+
+	&__content {
+		@include flexbox();
+		flex: 0 0 50%;
+		padding: 0px 0px 39px 0px;
+		@media (max-width:$md2+px){
+			padding: 0px 0px 20px 0px;
+			flex: 0 0 100%;
+			&:last-child{padding: 0px 0px 0px 0px;}
+			}
+		@media (max-width:$md4+px){
+			border: 2px solid #fff;
+			margin: 0px 0px 10px 0px;
+		}
+	}
+
+	&__image {
+
+		background-color: #000;
+		@include flexbox();
+		flex: 0 0 100px;
+		height: 100px;
+		justify-content: center;
+		align-items: center;
+		@media (max-width:$md2+px){
+			flex: 0 0 80px;
+			height: 80px;
+		}
+		@media (max-width:$md4+px){
+			flex: 0 0 60px;
+			height: 60px;
+			img{width: 80%;height: 80%;}
+			margin: 2px;
+		}
+
+	}
+	&__text {
+		flex: 0 1 100%;
+		padding: 0px 15px 0px 12px;
+		@include flexbox();
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	&__title {
+		flex: 1 1 100%;
+		color: #000000;
+		font-family: "akzidenzgroteskbq-bdcnd";
+		font-size: 25px;
+		text-transform: uppercase;
+		letter-spacing: 2.5px;
+		@media (max-width:$md4+px){font-size: 20px;}
+	}
+	&__subtitle {
+		color: #000000;
+		font-size: 15px;
+		line-height: 25px;
+		text-align: justify;
+		@media (max-width:$md4+px){font-size: 14px;}
+	}
+}
+.block-contacts {
+	margin: 82px 0px 0px 0px;
+	@media (max-width:$md2+px){
+		margin: 40px 0px 0px 0px;	
+		}
+	@media (max-width:$md3+px){
+		margin: 20px 0px 0px 0px;
+	}
+	&__title {
+		font-family: "akzidenzgroteskbq-bdcnd";
+		font-size: 50px;
+		line-height: 25px;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		padding: 0px 0px 39px 0px;
+		@media (max-width:$md2+px){
+			font-size: 36px;	
+		}
+		@media (max-width:$md3+px){
+			font-size: 24px;
+			text-align: center;
+			padding: 0px 0px 20px 0px;
+		}
+	}
+	&__row {
+		@include flexbox();
+		flex-wrap: wrap;
+		@media (max-width:$md4+px){
+			flex-direction: column;
+		}
+	}
+	&__content {
+		@include flexbox();
+		align-items: center;
+		flex: 1 1 50%;
+		padding: 0px 10px 35px 0px;
+	}
+	&__content1 {
+
+	}
+	&__image {
+		padding: 0px 15px 0px 0px;
+	}
+	&__text {
+		font-size: 15px;
+	}
+	&__content2 {}
+	&__mail {
+		color: #000000;
+		font-size: 15px;
+	}
+	&__content3 {}
+	&__tel {
+		color: #000000;
+		font-size: 15px;
+	}
+	&__content4 {
+		@include flexbox();
+
+	}
+	&__social-link {
+		padding: 0px 30px 0px 0px;
+	}
+}
+
+.block-footer {
+	@include flexbox();
+	background-color: #000;
+	@media (max-width:$md2+px){
+			flex-direction: column;
+			background-color: #fff;
+		}
+	&__map {
+		flex: 0 0 50%;
+		
+	}
+	&__yandex {
+		height: 100%;
+		@media (max-width:$md2+px){
+			height: 300px;
+			margin: 10px;
+			border: 2px solid #000;
+		}
+	
+	}
+	&__form {
+		flex: 1 1 auto;
+		padding: 54px 250px 50px 60px;
+		@media (max-width:$md2+px){
+			background-color: #000;	
+			padding: 30px 200px 30px 40px;
+		}
+		@media (max-width:$md3+px){
+			padding: 20px 100px 20px 20px;
+		}
+	}
+	&__title {
+
+		color: #ffffff;
+		font-family: "akzidenzgroteskbq-bdcnd";
+		font-size: 25px;
+		text-transform: uppercase;
+		letter-spacing: 2.5px;
+		padding: 0px 0px 28px 0px;
+	}
+}
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container{max-width:$mw+px;margin: 0 auto;width: 100%;
+	
+	@media (max-width:$md2+px){max-width: 750px;}
+	@media (max-width:$md3+px){max-width: none;padding:0 10px;}
+
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+@import "header.scss";
+@import "footer.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+
+
+//===================================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>===================================================================================================

@@ -1,0 +1,267 @@
+//====================================================================================================
+
+.header-body {	
+	@include flexbox();
+	flex-direction: column;
+	padding: 34px 0px 0px 0px;
+	@media (max-width:$md4+px){
+		padding: 10px 0px 0px 0px;
+		}
+	
+	&__lang {
+		@include flexbox();
+		justify-content: space-between;
+		margin: 0px 0px 40px 0px;
+		@media (max-width:$md4+px){
+			padding: 35px 0px 0px 0px;
+			z-index: 3;	
+		}
+		
+	}
+	&__logo {
+		@include flexbox();
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		top: -60px;
+		max-width: 220px;
+		margin: 0 auto;
+		@media (max-width:$md3+px){
+			top: -90px;	
+		}
+
+	}
+	&__burger-menu {
+		display: none;
+		@media (max-width:$md4+px){
+			&.active{
+				display: block;
+				width: 100%;
+				height: 100%;
+				border: 1px solid #000;
+				background-color: #09f;	
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				}					
+		}
+	}
+}
+.lang {
+	&__burger {
+		display: none;
+		@media (max-width:$md4+px){
+			display: block;
+		    position: absolute;
+		    top: 10px;
+		    width: 30px;
+		    height: 20px;
+		    z-index: 3;
+			&:before{
+    			content: '';
+		    	background-color: #000;
+		    	position: absolute;width: 100%;height: 2px; left: 0px;
+		    	bottom: 0;
+ 				transition: all 0.3s ease 0s;
+				}
+			&:after{
+    			content: '';
+		    	background-color: #000;
+		    	position: absolute;width: 100%;height: 2px; left: 0px;
+		    	top: 0;
+  				transition: all 0.3s ease 0s;
+				}
+			span{
+			    position: absolute;
+			    background-color: #000;
+			    left: 0px;
+			    width: 100%;
+			    height: 2px;
+			    top: 9px;
+			    transition: all 0.3s ease 0s;
+ 				}
+ 			&.active:before{
+		       transform: rotate(45deg);
+		       top: 9px;
+		       transition: all 0.5s ease 0s;
+				}
+			&.active:after{
+		       transform: rotate(-45deg);
+		       top: 9px;
+		       transition: all 0.5s ease 0s;
+		   		}
+		   	&.active span{
+    			transform: scale(0);
+    			}
+			}
+	}
+	&__icon {
+		@include flexbox();
+		align-items: center;
+	}
+}
+.icon {
+	&__link {
+		flex: 1 1 auto;
+		
+		color: #000000;
+		font-family: 'Bebas';
+		font-size: 10px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin: 0px 20px 0px 0px;
+		@media (max-width:$md4+px){
+			margin: 0px 10px 0px 0px;	
+		}
+
+	}
+	&__link-active {
+		color: #ffffff;
+		background-color: rgba(0,0,0,1);
+		text-decoration: underline;
+		padding: 4.5px;
+	}
+}
+.order {
+	&__link {
+			color: #000000;
+			font-family: "akzidenzgroteskbq-bdcnd";
+			font-size: 15px;
+			text-transform: uppercase;
+			text-decoration: underline;
+			@media (max-width:$md4+px){
+			font-size: 10px;
+		}
+	}
+}
+.menu {
+	&__row{
+		@include flexbox();
+		@media (max-width:$md3+px){
+			@include flexbox();
+			align-items: center;
+			justify-content: space-between;
+			@media (max-width:$md4+px){display: none;}
+		}
+
+		li:nth-child(1){
+			padding: 0px 46px 0px 6px;
+			@media (max-width:$md2+px){
+				padding: 0px 36px 0px 6px;
+			}
+			@media (max-width:$md3+px){
+				padding: 0px 0px 0px 0px;
+		}
+		}
+		li:nth-child(2){
+			padding: 0px 46px 0px 0px;
+			@media (max-width:$md2+px){
+				padding: 0px 36px 0px 0px;
+			}
+			@media (max-width:$md3+px){
+			padding: 0px 0px 0px 0px;
+		}
+		}
+		li:nth-child(3){
+			padding: 0px 169px 0px 0px;
+			@media (max-width:$md2+px){
+				padding: 0px 124px 0px 0px;
+			}
+			@media (max-width:$md3+px){
+			padding: 0px 0px 0px 0px;
+		}
+		}
+		li:nth-child(4){
+			padding: 0px 0px 0px 169px;
+			@media (max-width:$md2+px){
+				padding: 0px 0px 0px 124px;
+			}
+			@media (max-width:$md3+px){
+			padding: 0px 0px 0px 0px;
+		}
+		}
+		li:nth-child(5){
+			padding: 0px 0px 0px 46px;
+			@media (max-width:$md2+px){
+				padding: 0px 0px 0px 36px;
+			}
+			@media (max-width:$md3+px){
+			padding: 0px 0px 0px 0px;
+		}
+		}
+		li:nth-child(6){
+			padding: 0px 6px 0px 46px;
+			@media (max-width:$md2+px){
+				padding: 0px 6px 0px 36px;
+			}
+			@media (max-width:$md3+px){
+			padding: 0px 0px 0px 0px;
+		}	
+		}
+		
+	}
+	&__link {
+		color: #000000;
+		font-family: "akzidenzgroteskbq-bdcnd";
+		font-size: 15px;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		&:hover{
+			transition: border-bottom 0.5s ease-in 0s;
+			border-bottom: 2px solid #000;
+		}
+	}
+}
+.logo {
+	color: #000000;
+	font-family: 'Bebas';
+	font-size: 8px;
+	text-transform: uppercase;
+	letter-spacing: 8px;
+	
+	&__header {
+		padding: 0px 0px 10px 0px;
+		@media (max-width:$md3+px){
+			padding: 0px 0px 2px 0px;
+		}
+	}
+	&__image {
+		img{
+			@media (max-width:$md3+px){
+				max-width: 140px;
+			}
+		}
+	}
+	&__footer {
+		padding: 10px 0px 0px 0px;
+		@media (max-width:$md3+px){
+			padding: 2px 0px 0px 0px;	
+		}
+	}
+}
+
+//====================================================================================================
+
+/*
+	.header-menu__icon{
+		display: block;
+		position: absolute;
+		top: 18px;
+		right: 10px;
+		width:30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span{@include anim(0.3s,0s);top: 8px;left: 0px;position: absolute;width: 100%;height: 2px;background-color: #000;
+			&:first-child{top: 0px;}
+			&:last-child{top: auto;bottom: 0px;}
+		}
+		&.active{
+			span{@include scale(0);
+				&:first-child{@include rotate(-45deg);top: 8px;}
+				&:last-child{@include rotate(45deg);bottom: 8px;}
+			}
+		}
+	}
+*/
